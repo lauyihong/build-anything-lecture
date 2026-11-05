@@ -88,8 +88,8 @@ export const COURSE = {
       zh: '这是一门主要面向建筑学院高年级学生的实践选修课。你将从零设计和建造一台能看、能动、能操作的智能机器人，并深入了解它如何在与人共处的复杂环境中工作。',
     },
     {
-      en: 'The course consists of lectures and labs. The lectures systematically introduce the fundamentals of robot mechanisms, control, perception and learning. In the labs, you will work in teams to build an open-source robot kit, stepping through the frontier progress and learning methods of four directions: hardware design, robot manipulation, navigation and human-robot interaction. After the midterm, each team picks one of these directions for an exploratory final project, while guest speakers bring frontier topics in the corresponding direction each week. The course concludes with a final showcase.',
-      zh: '课程由讲授和实验两部分组成。讲授部分将系统介绍机器人的机构、控制、感知与学习等基础知识。实验课上，你们将分组搭建一套开源的机器人套件，依次认识硬件设计、机器人操作、导航和人机交互四个方向上的前沿进展和学习方法。中期之后，各组选定其中一个方向，完成一项探索性的大作业；每周还会有嘉宾带来对应方向的前沿专题。课程以期末展示收尾。',
+      en: 'The course consists of lectures and labs. The lectures systematically introduce the fundamentals of robot mechanisms, control, perception and learning. In the labs, you will work in teams to build an open-source robot kit, exploring the frontier progress of four directions, and how to get started in each: hardware design, robot manipulation, navigation and human-robot interaction. After the midterm, each team picks one of these directions for an exploratory final project, while guest speakers bring frontier topics in the corresponding direction each week. The course concludes with a final showcase.',
+      zh: '课程由讲授和实验两部分组成。讲授部分将系统介绍机器人的机构、控制、感知与学习等基础知识。实验课上，你们将分组搭建一套开源的机器人套件，依次认识硬件设计、机器人操作、导航和人机交互四个方向上的前沿进展和入门路径。中期之后，各组选定其中一个方向，完成一项探索性的大作业；每周还会有嘉宾带来对应方向的前沿专题。课程以期末展示收尾。',
     },
   ] as Localized[],
   // TODO: 学习目标
