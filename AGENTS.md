@@ -1,6 +1,6 @@
 # AGENTS.md
 
-本仓库是 “服务机器人设计与建造”课程网站（https://lauyihong.github.io/build-anything-lecture/ ）。
+本仓库是 “机器人设计与建造”课程网站（https://lauyihong.github.io/build-anything-lecture/ ）。
 
 当用户想更新课程内容时，例如修改课表或讲次、上传课件或代码、修改课程信息或教学团队，**先完整阅读 [`.claude/skills/update-course/SKILL.md`](.claude/skills/update-course/SKILL.md)，并严格按照里面的步骤工作**。那个文件是内容更新流程的唯一规则来源。
 
