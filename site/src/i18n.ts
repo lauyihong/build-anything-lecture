@@ -11,20 +11,28 @@ export const UI = {
   goals: { en: 'Learning goals', zh: '学习目标' },
   prerequisites: { en: 'Prerequisites', zh: '先修要求' },
   term: { en: 'Term', zh: '学期' },
+  time: { en: 'Time', zh: '时间' },
   location: { en: 'Location', zh: '地点' },
   repo: { en: 'GitHub', zh: 'GitHub' },
   colWeek: { en: 'Wk', zh: '周' },
-  afterClass: { en: 'After class', zh: '课后' },
+  colLecture: { en: 'Lecture', zh: '课程内容' },
+  readings: { en: 'Readings', zh: '阅读材料' },
+  guestLecture: { en: 'Guest Lecture', zh: '嘉宾讲座' },
+  slidesLink: { en: 'Slides', zh: '课件' },
+  codeLink: { en: 'Code', zh: '代码' },
+  videoLink: { en: 'Video', zh: '录像' },
+  notPosted: { en: 'Not posted yet', zh: '尚未发布' },
+  scheduleNote: {
+    en: 'Note: The schedule is subject to change and will be updated with slides and code as the course progresses.',
+    zh: '注：课表可能会有调整，课件和代码会随课程进度陆续更新。',
+  },
   colDate: { en: 'Date', zh: '日期' },
   colTopic: { en: 'Topic', zh: '主题' },
-  colMaterials: { en: 'Materials', zh: '资料' },
   slides: { en: 'slides', zh: '课件' },
-  video: { en: 'video', zh: '录像' },
-  comingSoon: { en: 'coming soon', zh: '待发布' },
   tbd: { en: 'TBD', zh: '待定' },
   codeIntro: {
-    en: 'All public code for the course lives in the code/ directory of the repository, one folder per week.',
-    zh: '课程所有公开代码都在仓库的 code/ 目录下，每周一个文件夹。',
+    en: 'All public code for the course lives in the code/ directory of the repository, one folder per lecture.',
+    zh: '课程所有公开代码都在仓库的 code/ 目录下，每讲一个文件夹。',
   },
   browseCode: { en: 'Browse code on GitHub', zh: '在 GitHub 上浏览代码' },
   backHome: { en: 'Yifeng Liu', zh: '刘伊丰' },
@@ -63,7 +71,8 @@ export function initialLang(): Lang {
   } catch {
     /* storage unavailable */
   }
-  return navigator.language.toLowerCase().startsWith('zh') ? 'zh' : 'en';
+  // 默认中文；英文需要手动切换或带 ?lang=en
+  return 'zh';
 }
 
 export function saveLang(lang: Lang) {

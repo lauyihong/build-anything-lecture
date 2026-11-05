@@ -9,7 +9,7 @@ A course in collaboration with Tsinghua University. This repository holds the co
 
 ```
 slides/   导出的 PDF 课件 / exported PDF slides
-code/     每讲的公开代码 / public code, one folder per week
+code/     每讲的公开代码 / public code, one folder per lecture
 site/     课程网站源码 (Vite + React + Tailwind) / website source
 ```
 
@@ -17,11 +17,11 @@ site/     课程网站源码 (Vite + React + Tailwind) / website source
 
 课程信息、课表和教学团队都在一个文件里：[`site/src/data/course.ts`](site/src/data/course.ts)。所有文本都是中英双语的 `{ en, zh }`。
 
-发布一周内容的流程：
+发布一讲的流程：
 
-1. 把 PDF 放进 `slides/`，例如 `slides/week-01-intro.pdf`
-2. 把代码放进 `code/week-01-intro/`
-3. 在 `course.ts` 对应那一周里填上 `slides` 和 `code`
+1. 把 PDF 放进 `slides/`，例如 `slides/L01-intro.pdf`
+2. 把代码放进 `code/L01-intro/`
+3. 在 `course.ts` 对应那一讲里填上 `slides` 和 `code`
 4. 推送到 `main`，GitHub Actions 会自动构建并部署（约 1 分钟）
 
 ## 本地预览 / Local preview

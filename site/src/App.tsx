@@ -91,6 +91,10 @@ export default function App() {
                       <dd className="mt-1 text-sm">{t(COURSE.term)}</dd>
                     </div>
                     <div>
+                      <dt className="label text-[10px]">{t(UI.time)}</dt>
+                      <dd className="mt-1 text-sm">{t(COURSE.time)}</dd>
+                    </div>
+                    <div>
                       <dt className="label text-[10px]">{t(UI.location)}</dt>
                       <dd className="mt-1 text-sm">{t(COURSE.location)}</dd>
                     </div>
