@@ -71,10 +71,21 @@ export const LECTURES: Lecture[] = [
 
 export const STAFF: Person[] = [
   {
+    name: { en: 'Ning Zhu', zh: '朱宁' },
+    role: { en: 'Instructor', zh: '主讲' }, // TODO: 确认角色
+    affiliation: { en: 'Tsinghua University', zh: '清华大学' },
+    url: 'https://www.arch.tsinghua.edu.cn/info/rw_jzx/1404',
+  },
+  {
+    name: { en: 'Jinggu Jia', zh: '贾京谷' }, // TODO: 确认英文名拼写
+    role: { en: 'Instructor', zh: '主讲' }, // TODO: 确认角色
+    affiliation: { en: 'Tsinghua University', zh: '清华大学' }, // TODO: 确认单位
+  },
+  {
     name: { en: 'Yifeng Liu', zh: '刘伊丰' },
     role: { en: 'Instructor', zh: '主讲' },
     affiliation: { en: 'MIT Media Lab', zh: 'MIT 媒体实验室' },
     url: HOMEPAGE_URL,
   },
-  // TODO: 清华方合作老师、助教
+  // TODO: 助教
 ];
