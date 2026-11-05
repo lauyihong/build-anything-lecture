@@ -96,7 +96,7 @@ const TBD: Localized = { en: 'TBD', zh: '待定' };
 // 前 10 周每次课 = 讲授 + 实验，分组搭建一套标准开源机器人（SO-101 机械臂 + 移动底盘），
 // 依次认识四个方向；感知放在 manipulation 之后（参考 MIT 6.4210 的顺序）。
 // 控制为先：第 6 周用控制方法、第 7 周用学习方法完成同一个标准任务，学习方法只要求理解，
-// 不要求学生训练，课上使用我们提前微调好的策略。
+// 不要求学生训练，课上使用我们提前微调好的策略。标准任务：叠放积木（复用叠叠乐比赛的开发资源）。
 // 后 6 周以大作业为主，每周一个嘉宾专题；第 16 周期末展示。
 export const PARTS: Part[] = [
   { number: 1, title: { en: 'Foundations: Four Directions, Core Methods', zh: '基础：四个方向与基本方法' } },
@@ -146,14 +146,14 @@ export const LECTURES: Lecture[] = [
     week: 6,
     part: 1,
     title: { en: 'Control Methods: Perception in the Loop', zh: '控制方法：把感知接进控制回路' },
-    lab: { en: 'Solving the Benchmark Task with Control', zh: '用控制方法完成标准任务' },
+    lab: { en: 'Block Stacking with Control', zh: '用控制方法叠放积木' },
   },
   {
     id: 'L07',
     week: 7,
     part: 1,
     title: { en: 'Learning Methods: Imitation Learning & Foundation Models', zh: '学习方法：模仿学习与基础模型' },
-    lab: { en: 'Running a Pre-trained Policy: Control vs. Learning', zh: '运行预训练策略，对比控制与学习' },
+    lab: { en: 'Block Stacking with a Pre-trained Policy: Control vs. Learning', zh: '用预训练策略叠放积木，对比控制与学习' },
   },
   {
     id: 'L08',
