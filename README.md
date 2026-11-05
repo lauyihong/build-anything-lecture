@@ -1,6 +1,6 @@
 # 机器人设计与建造
 
-Robot Design and Construction
+Designing and Building Robots
 
 与清华大学合作的课程。本仓库存放课程网站、课件和公开代码。
 A course in collaboration with Tsinghua University. This repository holds the course website, slides and public code.
