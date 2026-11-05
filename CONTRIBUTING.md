@@ -26,7 +26,7 @@
 
    不加 `/update-course`、直接用中文描述需求，一般也会自动用上这个 skill。
 
-   **其他 AI 助手**：先让它读规则文件，再说需求：
+   **其他 AI 助手**（Codex、Cursor、Copilot 等）：大多会自动读取仓库根目录的 `AGENTS.md`，从那里找到规则。保险起见，第一句话可以明确让它先读规则文件：
 
    ```
    请先阅读 .claude/skills/update-course/SKILL.md，严格按照里面的步骤工作。
