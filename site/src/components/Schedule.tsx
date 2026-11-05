@@ -22,6 +22,27 @@ function BracketLink({ href, children }: { href: string; children: ReactNode }) 
   );
 }
 
+function LabCell({ lecture: l }: { lecture: Lecture }) {
+  const t = useT();
+  const colon = useLang() === 'zh' ? '：' : ': ';
+  return (
+    <>
+      {l.lab && (
+        <p className="font-medium text-strong">
+          Lab {l.id.slice(1)}. {t(l.lab)}
+        </p>
+      )}
+      {l.project && (
+        <p className="font-medium text-strong">
+          {t(UI.project)}
+          {colon}
+          {t(l.project)}
+        </p>
+      )}
+    </>
+  );
+}
+
 function LectureCell({ lecture: l }: { lecture: Lecture }) {
   const t = useT();
   const colon = useLang() === 'zh' ? '：' : ': ';
@@ -51,20 +72,10 @@ function LectureCell({ lecture: l }: { lecture: Lecture }) {
           {l.guest.affiliation && ` · ${t(l.guest.affiliation)}`}
         </p>
       )}
-      {l.lab && (
-        <p className="font-medium text-strong">
-          Lab {l.id.slice(1)}
-          {colon}
-          {t(l.lab)}
-        </p>
-      )}
-      {l.project && (
-        <p className="font-medium text-strong">
-          {t(UI.project)}
-          {colon}
-          {t(l.project)}
-        </p>
-      )}
+      {/* 窄屏没有 Lab 列，实验和大作业显示在课程内容下面 */}
+      <div className="md:hidden">
+        <LabCell lecture={l} />
+      </div>
       {l.description && <p className="font-light text-body">{t(l.description)}</p>}
       {l.readings && l.readings.length > 0 && (
         <p className="font-light text-muted">
@@ -109,6 +120,7 @@ export default function Schedule() {
             <th className={`${th} w-12`}>{t(UI.colWeek)}</th>
             <th className={`${th} w-20`}>{t(UI.colDate)}</th>
             <th className={th}>{t(UI.colLecture)}</th>
+            <th className={`${th} hidden w-2/5 md:table-cell`}>{t(UI.colLab)}</th>
           </tr>
         </thead>
         {PARTS.map((p) => {
@@ -123,7 +135,7 @@ export default function Schedule() {
           return (
             <tbody key={p.number}>
               <tr className="border-b border-line-strong">
-                <td colSpan={3} className="pb-4 pt-10">
+                <td colSpan={4} className="pb-4 pt-10">
                   <span className="label block text-[10px]">{label}</span>
                   <span className="mt-1 block text-lg font-medium text-strong">{t(p.title)}</span>
                 </td>
@@ -132,8 +144,11 @@ export default function Schedule() {
                 <tr key={l.id} className="border-b border-line align-top transition-colors hover:bg-panel">
                   <td className="py-5 pr-4 font-mono text-xs text-muted">{String(l.week).padStart(2, '0')}</td>
                   <td className="py-5 pr-4 font-mono text-xs text-muted">{l.date ? formatDate(l.date, lang) : t(UI.tbd)}</td>
-                  <td className="py-5">
+                  <td className="py-5 pr-4">
                     <LectureCell lecture={l} />
+                  </td>
+                  <td className="hidden py-5 md:table-cell">
+                    <LabCell lecture={l} />
                   </td>
                 </tr>
               ))}

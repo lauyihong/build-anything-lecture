@@ -16,6 +16,7 @@ export const UI = {
   repo: { en: 'GitHub', zh: 'GitHub' },
   colWeek: { en: 'Wk', zh: '周' },
   colLecture: { en: 'Lecture', zh: '课程内容' },
+  colLab: { en: 'Lab', zh: 'Lab' },
   readings: { en: 'Readings', zh: '阅读材料' },
   guestLecture: { en: 'Guest speaker', zh: '嘉宾' },
   slidesLink: { en: 'Slides', zh: '课件' },
