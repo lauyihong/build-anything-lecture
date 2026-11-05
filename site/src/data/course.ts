@@ -73,7 +73,7 @@ export const COURSE = {
     en: 'Design and build an intelligent robot from scratch.',
     zh: '从零设计和建造一台智能机器人。',
   },
-  partner: { en: 'In collaboration with Tsinghua University', zh: '与清华大学合作' },
+  partner: { en: 'General Education Course, School of Architecture, Tsinghua University', zh: '清华大学建筑学院通识课' },
   term: { en: 'Spring 2027', zh: '2027 春季学期' },
   time: { en: 'Fridays, 1:30–4:55 PM', zh: '每周五 13:30–16:55' },
   location: { en: 'TBD', zh: '待定' }, // TODO: 上课地点 / 线上

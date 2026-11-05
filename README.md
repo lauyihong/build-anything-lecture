@@ -2,8 +2,8 @@
 
 Designing and Building Robots
 
-与清华大学合作的课程。本仓库存放课程网站、课件和公开代码。
-A course in collaboration with Tsinghua University. This repository holds the course website, slides and public code.
+清华大学建筑学院通识课。本仓库存放课程网站、课件和公开代码。
+A general education course at the School of Architecture, Tsinghua University. This repository holds the course website, slides and public code.
 
 **课程网站 / Website:** https://lauyihong.github.io/build-anything-lecture/
 
