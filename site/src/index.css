@@ -1,0 +1,85 @@
+@import 'tailwindcss';
+@import '@fontsource/inter/300.css';
+@import '@fontsource/inter/400.css';
+@import '@fontsource/inter/500.css';
+@import '@fontsource/inter/600.css';
+@import '@fontsource/jetbrains-mono/400.css';
+@import '@fontsource/jetbrains-mono/500.css';
+
+/* 配色沿用 lauyihong.github.io：黑白单色 + 暖棕色暗色模式。 */
+:root {
+  color-scheme: light;
+  --page: #ffffff;
+  --ink: #1a1a1a;
+  --strong: #000000;
+  --body: #374151;
+  --muted: #6b7280;
+  --subtle: #9ca3af;
+  --line: rgb(0 0 0 / 0.06);
+  --line-strong: rgb(0 0 0 / 0.12);
+  --panel: #f9fafb;
+  --hover: #f3f4f6;
+  --nav: rgb(255 255 255 / 0.9);
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --page: #191511;
+  --ink: #f3ede5;
+  --strong: #ffffff;
+  --body: #ded3c5;
+  --muted: #b2a18e;
+  --subtle: #a99681;
+  --line: rgb(255 255 255 / 0.08);
+  --line-strong: rgb(255 255 255 / 0.14);
+  --panel: #241e19;
+  --hover: #30271f;
+  --nav: rgb(25 21 17 / 0.92);
+}
+
+@theme inline {
+  --font-sans: 'Inter', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans SC', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+  --color-page: var(--page);
+  --color-ink: var(--ink);
+  --color-strong: var(--strong);
+  --color-body: var(--body);
+  --color-muted: var(--muted);
+  --color-subtle: var(--subtle);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-panel: var(--panel);
+  --color-hover: var(--hover);
+  --color-nav: var(--nav);
+}
+
+html {
+  background: var(--page);
+  scroll-padding-top: 5rem;
+}
+
+body {
+  background: var(--page);
+  color: var(--ink);
+}
+
+::selection {
+  background: var(--hover);
+  color: var(--strong);
+}
+
+/* 小号 mono 标签，对应主页的 font-mono text-xs uppercase tracking-widest。 */
+@layer components {
+  .label {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    line-height: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+  }
+  /* 中文没有大小写，宽字距会显得松散。 */
+  :root[lang='zh-CN'] .label {
+    letter-spacing: 0.04em;
+  }
+}

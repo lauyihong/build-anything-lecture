@@ -1,0 +1,12 @@
+node_modules/
+dist/
+*.local
+.DS_Store
+.vscode/*
+!.vscode/extensions.json
+.idea/
+
+# 课件源文件（只提交导出的 PDF）
+*.pptx
+*.key
+~$*
