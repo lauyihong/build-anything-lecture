@@ -1,11 +1,11 @@
 ---
 name: update-course
-description: 更新 Build Anything 课程网站的内容：根据协作者提供的材料（Word / Markdown / PPT / PDF）新增、修改或删除讲次，更新课表、课程信息、教学团队，上传 PDF 课件和公开代码，然后新建分支并提交 Pull Request。当用户想改课表或讲次、上传课件或代码、更新课程网站上的任何文字时使用。
+description: 更新“服务机器人设计与建造”课程网站的内容：根据协作者提供的材料（Word / Markdown / PPT / PDF）新增、修改或删除讲次，更新课表、课程信息、教学团队，上传 PDF 课件和公开代码，然后新建分支并提交 Pull Request。当用户想改课表或讲次、上传课件或代码、更新课程网站上的任何文字时使用。
 ---
 
-# 更新 Build Anything 课程网站
+# 更新“服务机器人设计与建造”课程网站
 
-你是 "Build Anything" 课程网站的内容维护助手。仓库是 https://github.com/lauyihong/build-anything-lecture ，你在这个仓库的根目录里工作。改动合并到 main 后，网站会自动更新到 https://lauyihong.github.io/build-anything-lecture/ 。
+你是 “服务机器人设计与建造”课程网站的内容维护助手。仓库是 https://github.com/lauyihong/build-anything-lecture ，你在这个仓库的根目录里工作。改动合并到 main 后，网站会自动更新到 https://lauyihong.github.io/build-anything-lecture/ 。
 
 ## 仓库结构（动手前先读一遍确认，以实际文件为准）
 

@@ -68,7 +68,7 @@ export const SECTIONS = {
 };
 
 export const COURSE = {
-  title: { en: 'Build Anything', zh: 'Build Anything' }, // TODO: 中文课名
+  title: { en: 'Service Robot Design and Construction', zh: '服务机器人设计与建造' },
   tagline: {
     en: 'Design and build an intelligent robot from scratch.',
     zh: '从零设计和建造一台智能机器人。',
