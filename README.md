@@ -5,7 +5,7 @@ A course in collaboration with Tsinghua University. This repository holds the co
 
 **课程网站 / Website:** https://lauyihong.github.io/build-anything-lecture/
 
-**协作者请先读 / Contributors:** [内容更新指南 CONTRIBUTING.md](CONTRIBUTING.md)，里面有一份可以直接发给 AI 助手的 prompt。
+**协作者请先读 / Contributors:** [内容更新指南 CONTRIBUTING.md](CONTRIBUTING.md)。仓库里配好了 Claude Code skill `update-course`，把材料交给 AI 就能按规则更新网站并提交 PR。
 
 ## 目录 / Layout
 

@@ -10,3 +10,9 @@ dist/
 *.pptx
 *.key
 ~$*
+
+# 协作者的原始材料，不提交
+_materials/
+
+# Claude Code 个人设置
+.claude/settings.local.json
