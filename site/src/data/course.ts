@@ -93,7 +93,7 @@ export const COURSE = {
 const TBD: Localized = { en: 'TBD', zh: '待定' };
 
 // 课表：16 周。前 10 周每次课 = 讲授 + 实验（分组搭建一套标准开源机器人）；
-// 后 6 周以大作业为主，配合嘉宾前沿专题讲座。具体内容待定。
+// 后 6 周以大作业为主，配合嘉宾前沿专题讲座；第 16 周期末展示。具体内容待定。
 export const PARTS: Part[] = [
   { number: 1, title: { en: 'Build: Lecture + Lab', zh: '动手搭建：讲授 + 实验' } },
   { number: 2, title: { en: 'Final Project & Frontier Topics', zh: '大作业与前沿专题' } },
@@ -117,7 +117,7 @@ export const LECTURES: Lecture[] = [
   { id: 'L13', week: 13, part: 2, title: TBD, guest: GUEST_TBD, project: TBD },
   { id: 'L14', week: 14, part: 2, title: TBD, guest: GUEST_TBD, project: TBD },
   { id: 'L15', week: 15, part: 2, title: TBD, guest: GUEST_TBD, project: TBD },
-  { id: 'L16', week: 16, part: 2, title: TBD, guest: GUEST_TBD, project: TBD },
+  { id: 'L16', week: 16, part: 2, title: { en: 'Final Showcase', zh: '期末展示' } },
 ];
 
 export const STAFF: Person[] = [
