@@ -5,6 +5,8 @@ A course in collaboration with Tsinghua University. This repository holds the co
 
 **课程网站 / Website:** https://lauyihong.github.io/build-anything-lecture/
 
+**协作者请先读 / Contributors:** [内容更新指南 CONTRIBUTING.md](CONTRIBUTING.md)，里面有一份可以直接发给 AI 助手的 prompt。
+
 ## 目录 / Layout
 
 ```
@@ -23,6 +25,8 @@ site/     课程网站源码 (Vite + React + Tailwind) / website source
 2. 把代码放进 `code/L01-intro/`
 3. 在 `course.ts` 对应那一讲里填上 `slides` 和 `code`
 4. 推送到 `main`，GitHub Actions 会自动构建并部署（约 1 分钟）
+
+协作者请不要直接推送 `main`，按 [CONTRIBUTING.md](CONTRIBUTING.md) 新建分支并提交 Pull Request。
 
 ## 本地预览 / Local preview
 
