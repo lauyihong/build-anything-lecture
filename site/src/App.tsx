@@ -3,7 +3,7 @@ import { ArrowUpRight } from 'lucide-react';
 import Navbar from './components/Navbar';
 import Schedule from './components/Schedule';
 import Section from './components/Section';
-import { COURSE, HOMEPAGE_URL, REPO_URL, STAFF, type Localized } from './data/course';
+import { COURSE, HOMEPAGE_URL, REPO_URL, SECTIONS, STAFF, type Localized } from './data/course';
 import { LangContext, UI, initialLang, saveLang, type Lang } from './i18n';
 
 const THEME_KEY = 'bal-theme';
@@ -101,11 +101,13 @@ export default function App() {
                   </dl>
                   <div className="flex flex-wrap items-center gap-4">
                     <a href="#schedule" className={pillLink}>
-                      {t(UI.slides)}
+                      {t(UI.schedule)}
                     </a>
-                    <a href="#code" className={pillLink}>
-                      {t(UI.code)}
-                    </a>
+                    {SECTIONS.code && (
+                      <a href="#code" className={pillLink}>
+                        {t(UI.code)}
+                      </a>
+                    )}
                     <a href={REPO_URL} target="_blank" rel="noreferrer" className={pillLink}>
                       {t(UI.repo)}
                     </a>
@@ -143,34 +145,38 @@ export default function App() {
             <Schedule />
           </Section>
 
-          <Section id="code" title={t(UI.code)}>
-            <p className="mb-6 text-lg font-light leading-relaxed text-body">{t(UI.codeIntro)}</p>
-            <pre className="mb-6 overflow-x-auto border border-line bg-panel p-4 font-mono text-sm text-body">
-              <code>git clone {REPO_URL}.git</code>
-            </pre>
-            <a href={`${REPO_URL}/tree/main/code`} target="_blank" rel="noreferrer" className={`${textLink} inline-flex items-center gap-1`}>
-              {t(UI.browseCode)}
-              <ArrowUpRight className="h-4 w-4" aria-hidden />
-            </a>
-          </Section>
+          {SECTIONS.code && (
+            <Section id="code" title={t(UI.code)}>
+              <p className="mb-6 text-lg font-light leading-relaxed text-body">{t(UI.codeIntro)}</p>
+              <pre className="mb-6 overflow-x-auto border border-line bg-panel p-4 font-mono text-sm text-body">
+                <code>git clone {REPO_URL}.git</code>
+              </pre>
+              <a href={`${REPO_URL}/tree/main/code`} target="_blank" rel="noreferrer" className={`${textLink} inline-flex items-center gap-1`}>
+                {t(UI.browseCode)}
+                <ArrowUpRight className="h-4 w-4" aria-hidden />
+              </a>
+            </Section>
+          )}
 
-          <Section id="staff" title={t(UI.staff)}>
-            <ul className="grid grid-cols-1 gap-8 sm:grid-cols-2">
-              {STAFF.map((p) => (
-                <li key={p.name.en}>
-                  {p.url ? (
-                    <a href={p.url} target="_blank" rel="noreferrer" className={`${textLink} text-lg`}>
-                      {t(p.name)}
-                    </a>
-                  ) : (
-                    <span className="text-lg font-medium text-strong">{t(p.name)}</span>
-                  )}
-                  <p className="mt-1 text-sm text-muted">{t(p.role)}</p>
-                  <p className="font-mono text-xs text-subtle">{t(p.affiliation)}</p>
-                </li>
-              ))}
-            </ul>
-          </Section>
+          {SECTIONS.staff && (
+            <Section id="staff" title={t(UI.staff)}>
+              <ul className="grid grid-cols-1 gap-8 sm:grid-cols-2">
+                {STAFF.map((p) => (
+                  <li key={p.name.en}>
+                    {p.url ? (
+                      <a href={p.url} target="_blank" rel="noreferrer" className={`${textLink} text-lg`}>
+                        {t(p.name)}
+                      </a>
+                    ) : (
+                      <span className="text-lg font-medium text-strong">{t(p.name)}</span>
+                    )}
+                    <p className="mt-1 text-sm text-muted">{t(p.role)}</p>
+                    <p className="font-mono text-xs text-subtle">{t(p.affiliation)}</p>
+                  </li>
+                ))}
+              </ul>
+            </Section>
+          )}
         </main>
 
         <footer className="py-16">

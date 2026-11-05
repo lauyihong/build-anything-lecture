@@ -16,3 +16,6 @@ _materials/
 
 # Claude Code 个人设置
 .claude/settings.local.json
+
+# 本地课程规划草稿，不提交
+_drafts/

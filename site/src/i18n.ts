@@ -21,7 +21,7 @@ export const UI = {
   slidesLink: { en: 'Slides', zh: '课件' },
   codeLink: { en: 'Code', zh: '代码' },
   videoLink: { en: 'Video', zh: '录像' },
-  notPosted: { en: 'Not posted yet', zh: '尚未发布' },
+  project: { en: 'Final project', zh: '大作业' },
   scheduleNote: {
     en: 'Note: The schedule is subject to change and will be updated with slides and code as the course progresses.',
     zh: '注：课表可能会有调整，课件和代码会随课程进度陆续更新。',

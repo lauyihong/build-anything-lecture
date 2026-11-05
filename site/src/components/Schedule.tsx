@@ -14,15 +14,7 @@ function formatDate(iso: string, lang: Lang) {
   );
 }
 
-function BracketLink({ href, children }: { href?: string; children: ReactNode }) {
-  const t = useT();
-  if (!href) {
-    return (
-      <span className="cursor-default text-subtle" title={t(UI.notPosted)} aria-disabled="true">
-        [{children}]
-      </span>
-    );
-  }
+function BracketLink({ href, children }: { href: string; children: ReactNode }) {
   return (
     <a href={href} target="_blank" rel="noreferrer" className="text-muted underline decoration-line-strong underline-offset-2 transition-colors hover:text-strong hover:decoration-current">
       [{children}]
@@ -37,10 +29,10 @@ function LectureCell({ lecture: l }: { lecture: Lecture }) {
 
   return (
     <>
-      <p className="mb-1 font-medium text-strong">
+      <p className="font-medium text-strong">
         {l.id}. {l.guest ? `${t(UI.guestLecture)}${colon}${t(l.guest.name)}` : t(l.title)}
       </p>
-      {l.guest && (
+      {l.guest && (l.guest.affiliation || l.guest.url) && (
         <p className="font-light text-muted">
           {l.guest.url ? (
             <a href={l.guest.url} target="_blank" rel="noreferrer" className="text-strong underline decoration-line-strong underline-offset-2 transition-colors hover:decoration-current">
@@ -51,6 +43,20 @@ function LectureCell({ lecture: l }: { lecture: Lecture }) {
           )}
           {' · '}
           {t(l.title)}
+        </p>
+      )}
+      {l.lab && (
+        <p className="font-medium text-strong">
+          Lab {l.id.slice(1)}
+          {colon}
+          {t(l.lab)}
+        </p>
+      )}
+      {l.project && (
+        <p className="font-medium text-strong">
+          {t(UI.project)}
+          {colon}
+          {t(l.project)}
         </p>
       )}
       {l.description && <p className="font-light text-body">{t(l.description)}</p>}
@@ -71,11 +77,13 @@ function LectureCell({ lecture: l }: { lecture: Lecture }) {
           ))}
         </p>
       )}
-      <p className="mt-2 flex flex-wrap gap-x-3 font-mono text-xs">
-        <BracketLink href={l.slides && `${base}slides/${l.slides}`}>{t(UI.slidesLink)}</BracketLink>
-        <BracketLink href={l.code && `${REPO_URL}/tree/main/code/${l.code}`}>{t(UI.codeLink)}</BracketLink>
-        {l.video && <BracketLink href={l.video}>{t(UI.videoLink)}</BracketLink>}
-      </p>
+      {(l.slides || l.code || l.video) && (
+        <p className="mt-2 flex flex-wrap gap-x-3 font-mono text-xs">
+          {l.slides && <BracketLink href={`${base}slides/${l.slides}`}>{t(UI.slidesLink)}</BracketLink>}
+          {l.code && <BracketLink href={`${REPO_URL}/tree/main/code/${l.code}`}>{t(UI.codeLink)}</BracketLink>}
+          {l.video && <BracketLink href={l.video}>{t(UI.videoLink)}</BracketLink>}
+        </p>
+      )}
       {l.assignment && <p className="mt-2 font-medium text-strong">{t(l.assignment)}</p>}
     </>
   );
@@ -100,7 +108,12 @@ export default function Schedule() {
         {PARTS.map((p) => {
           const lectures = LECTURES.filter((l) => l.part === p.number);
           if (!lectures.length) return null;
-          const label = lang === 'zh' ? `第${CN_NUM[p.number - 1] ?? p.number}部分` : `Part ${p.number}`;
+          const weeks = lectures.map((l) => l.week);
+          const range = `${Math.min(...weeks)}–${Math.max(...weeks)}`;
+          const label =
+            lang === 'zh'
+              ? `第${CN_NUM[p.number - 1] ?? p.number}部分 · 第 ${range} 周`
+              : `Part ${p.number} · Weeks ${range}`;
           return (
             <tbody key={p.number}>
               <tr className="border-b border-line-strong">

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { ArrowRight, Menu, Moon, Sun, X } from 'lucide-react';
-import { COURSE } from '../data/course';
+import { COURSE, SECTIONS } from '../data/course';
 import { UI, useT } from '../i18n';
 
 interface Props {
@@ -10,11 +10,11 @@ interface Props {
 }
 
 const LINKS = [
-  { id: 'about', label: UI.about },
-  { id: 'schedule', label: UI.schedule },
-  { id: 'code', label: UI.code },
-  { id: 'staff', label: UI.staff },
-];
+  { id: 'about', label: UI.about, show: true },
+  { id: 'schedule', label: UI.schedule, show: true },
+  { id: 'code', label: UI.code, show: SECTIONS.code },
+  { id: 'staff', label: UI.staff, show: SECTIONS.staff },
+].filter((l) => l.show);
 
 const iconButton =
   'inline-flex h-10 shrink-0 items-center justify-center rounded-full border border-line-strong transition-colors hover:bg-hover focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-current';
