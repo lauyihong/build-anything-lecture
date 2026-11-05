@@ -30,19 +30,25 @@ function LectureCell({ lecture: l }: { lecture: Lecture }) {
   return (
     <>
       <p className="font-medium text-strong">
-        {l.id}. {l.guest ? `${t(UI.guestLecture)}${colon}${t(l.guest.name)}` : t(l.title)}
+        {l.id}. {t(l.title)}
       </p>
-      {l.guest && (l.guest.affiliation || l.guest.url) && (
+      {l.guest && (
         <p className="font-light text-muted">
+          {t(UI.guestLecture)}
+          {colon}
           {l.guest.url ? (
-            <a href={l.guest.url} target="_blank" rel="noreferrer" className="text-strong underline decoration-line-strong underline-offset-2 transition-colors hover:decoration-current">
-              {l.guest.affiliation ? t(l.guest.affiliation) : l.guest.url}
+            <a
+              href={l.guest.url}
+              target="_blank"
+              rel="noreferrer"
+              className="text-strong underline decoration-line-strong underline-offset-2 transition-colors hover:decoration-current"
+            >
+              {t(l.guest.name)}
             </a>
           ) : (
-            l.guest.affiliation && t(l.guest.affiliation)
+            t(l.guest.name)
           )}
-          {' · '}
-          {t(l.title)}
+          {l.guest.affiliation && ` · ${t(l.guest.affiliation)}`}
         </p>
       )}
       {l.lab && (

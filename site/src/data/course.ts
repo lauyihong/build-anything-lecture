@@ -25,7 +25,7 @@ export interface Lecture {
   part: number;
   /** 上课日期，ISO 格式，如 '2027-03-02'；未定就留空 */
   date?: string;
-  /** 讲课（lecture）部分的标题；嘉宾讲座填 guest，这里写讲座题目 */
+  /** 讲课（lecture）部分的标题；嘉宾讲座时写专题名称 */
   title: Localized;
   /** 实验（lab）部分的标题，显示为 “Lab 01：标题” */
   lab?: Localized;
@@ -33,7 +33,7 @@ export interface Lecture {
   project?: Localized;
   /** 标题下一行的内容简介 */
   description?: Localized;
-  /** 嘉宾讲座：填了会显示为 “Guest Lecture: 名字” */
+  /** 嘉宾讲座：填了会在标题下面显示 “嘉宾：名字 · 单位” */
   guest?: Guest;
   readings?: Link[];
   /** slides/ 目录下的 PDF 文件名，例如 'L01-intro.pdf'；填了才显示 [Slides] */
@@ -70,8 +70,8 @@ export const SECTIONS = {
 export const COURSE = {
   title: { en: 'Build Anything', zh: 'Build Anything' }, // TODO: 中文课名
   tagline: {
-    en: 'Build robots that work in architectural space, from scratch.',
-    zh: '在建筑空间里，从零搭建会工作的机器人。',
+    en: 'Design and build an intelligent robot from scratch.',
+    zh: '从零设计和建造一台智能机器人。',
   },
   partner: { en: 'In collaboration with Tsinghua University', zh: '与清华大学合作' },
   term: { en: 'Spring 2027', zh: '2027 春季学期' },
@@ -80,8 +80,8 @@ export const COURSE = {
   // 课程简介，每个元素是一段
   about: [
     {
-      en: 'A hands-on elective for students in the School of Architecture, centered on robots that work in architectural space. In the first ten weeks, each session pairs a lecture with a lab: working in teams, students build a standard open-source robot from scratch and pick up the essentials of mechanical structure, electronics and control, perception, and simulation along the way. The last six weeks are devoted to a final project, in which each team designs and realizes a robot task in a real or simulated architectural space, alongside guest lectures on frontier topics from researchers and practitioners.',
-      zh: '这是一门面向建筑学院学生的动手实践选修课，关注能在建筑空间中工作的机器人。前十周，每次课由讲授和实验两部分组成：同学们分组从零搭建一套标准的开源机器人，在动手的过程中理解机械结构、电子与控制、感知和仿真的基础知识。后六周以大作业为主，各组在真实或仿真的建筑空间里设计并实现一个机器人任务；同时我们会邀请来自学界和业界的嘉宾，带来前沿专题讲座。',
+      en: 'A hands-on elective for students in the School of Architecture: design and build, from scratch, an intelligent robot that can see, move and manipulate. In the first ten weeks, each session pairs a lecture with a lab. Working in teams, students build a standard open-source robot, step through four directions — hardware design, manipulation, navigation and human-robot interaction (HRI) — and practice the core methods of reading papers, running experiments and evaluating results. The last six weeks are devoted to a final project: each team picks one direction, poses its own question and carries out a first exploration on the real robot, while guest speakers bring frontier topics in each direction. The course ends with a final showcase.',
+      zh: '这是一门面向建筑学院学生的动手实践选修课：从零设计和建造一台能看、能动、能操作的智能机器人。前十周，每次课由讲授和实验两部分组成：同学们分组搭建一套标准的开源机器人，依次认识硬件设计、操作（manipulation）、导航（navigation）和人机交互（HRI）四个方向，同时练习读论文、做实验、评估结果这些基本方法。后六周以大作业为主：各组选定其中一个方向，提出自己的问题，在真机上完成一次起步性的探索；每周还有嘉宾带来对应方向的前沿专题。课程以期末展示收尾。',
     },
   ] as Localized[],
   // TODO: 学习目标
@@ -92,31 +92,128 @@ export const COURSE = {
 
 const TBD: Localized = { en: 'TBD', zh: '待定' };
 
-// 课表：16 周。前 10 周每次课 = 讲授 + 实验（分组搭建一套标准开源机器人）；
-// 后 6 周以大作业为主，配合嘉宾前沿专题讲座；第 16 周期末展示。具体内容待定。
+// 课表：16 周。网站上只放标题，每周的具体安排在本地草稿里。
+// 前 10 周每次课 = 讲授 + 实验，分组搭建一套标准开源机器人（SO-101 机械臂 + 移动底盘），
+// 依次认识四个方向；感知放在 manipulation 之后（参考 MIT 6.4210 的顺序）。
+// 后 6 周以大作业为主，每周一个嘉宾专题；第 16 周期末展示。
 export const PARTS: Part[] = [
-  { number: 1, title: { en: 'Build: Lecture + Lab', zh: '动手搭建：讲授 + 实验' } },
-  { number: 2, title: { en: 'Final Project & Frontier Topics', zh: '大作业与前沿专题' } },
+  { number: 1, title: { en: 'Foundations: Four Directions, Core Methods', zh: '基础：四个方向与基本方法' } },
+  { number: 2, title: { en: 'Exploration: Final Project & Frontier Topics', zh: '探索：大作业与前沿专题' } },
 ];
 
 const GUEST_TBD: Guest = { name: TBD };
 
 export const LECTURES: Lecture[] = [
-  { id: 'L01', week: 1, part: 1, title: TBD, lab: TBD },
-  { id: 'L02', week: 2, part: 1, title: TBD, lab: TBD },
-  { id: 'L03', week: 3, part: 1, title: TBD, lab: TBD },
-  { id: 'L04', week: 4, part: 1, title: TBD, lab: TBD },
-  { id: 'L05', week: 5, part: 1, title: TBD, lab: TBD },
-  { id: 'L06', week: 6, part: 1, title: TBD, lab: TBD },
-  { id: 'L07', week: 7, part: 1, title: TBD, lab: TBD },
-  { id: 'L08', week: 8, part: 1, title: TBD, lab: TBD },
-  { id: 'L09', week: 9, part: 1, title: TBD, lab: TBD },
-  { id: 'L10', week: 10, part: 1, title: TBD, lab: TBD },
-  { id: 'L11', week: 11, part: 2, title: TBD, guest: GUEST_TBD, project: TBD },
-  { id: 'L12', week: 12, part: 2, title: TBD, guest: GUEST_TBD, project: TBD },
-  { id: 'L13', week: 13, part: 2, title: TBD, guest: GUEST_TBD, project: TBD },
-  { id: 'L14', week: 14, part: 2, title: TBD, guest: GUEST_TBD, project: TBD },
-  { id: 'L15', week: 15, part: 2, title: TBD, guest: GUEST_TBD, project: TBD },
+  {
+    id: 'L01',
+    week: 1,
+    part: 1,
+    title: { en: 'Robotics at a Glance: Four Directions', zh: '机器人概览：四个方向' },
+    lab: { en: 'Kit Check-in, Setup & Team Formation', zh: '领取套件，配置环境，分组' },
+  },
+  {
+    id: 'L02',
+    week: 2,
+    part: 1,
+    title: { en: 'Hardware: Mechanisms, Actuators & Sensors', zh: '硬件：机构、驱动与传感器' },
+    lab: { en: 'Assembling the Follower Arm', zh: '组装从臂' },
+  },
+  {
+    id: 'L03',
+    week: 3,
+    part: 1,
+    title: { en: 'Control & Kinematics Basics', zh: '控制与运动学基础' },
+    lab: { en: 'Leader Arm, Calibration & Teleoperation', zh: '组装主臂，标定与遥操作' },
+  },
+  {
+    id: 'L04',
+    week: 4,
+    part: 1,
+    title: { en: 'Manipulation: Pick and Place with Known Poses', zh: '操作：已知位置下的抓取与放置' },
+    lab: { en: 'Scripted Pick and Place at Fixed Positions', zh: '在固定位置编程完成抓取与放置' },
+  },
+  {
+    id: 'L05',
+    week: 5,
+    part: 1,
+    title: { en: 'Perception: From Known Poses to Seeing', zh: '感知：从“已知位置”到“自己看见”' },
+    lab: { en: 'Camera Setup & Vision-Guided Grasping', zh: '加装相机，视觉引导抓取' },
+  },
+  {
+    id: 'L06',
+    week: 6,
+    part: 1,
+    title: { en: 'Learning from Demonstration', zh: '从示范中学习' },
+    lab: { en: 'Collecting Teleoperated Demonstrations', zh: '遥操作采集示范数据' },
+  },
+  {
+    id: 'L07',
+    week: 7,
+    part: 1,
+    title: { en: 'Training & Evaluation', zh: '训练与评估' },
+    lab: { en: 'Training a Policy & Evaluating It on the Robot', zh: '训练策略并在真机上评估' },
+  },
+  {
+    id: 'L08',
+    week: 8,
+    part: 1,
+    title: { en: 'Navigation: Mapping, Localization & Planning', zh: '导航：建图、定位与规划' },
+    lab: { en: 'Mobile Base Assembly & Basic Navigation', zh: '装上移动底盘，遥控与简单导航' },
+  },
+  {
+    id: 'L09',
+    week: 9,
+    part: 1,
+    title: { en: 'HRI: Robots in Shared Spaces', zh: '人机交互：共享空间中的机器人' },
+    lab: { en: 'Building a Simple Interactive Behavior', zh: '实现一个简单的交互行为' },
+  },
+  {
+    id: 'L10',
+    week: 10,
+    part: 1,
+    title: { en: 'Asking a Good Question', zh: '如何提出一个好问题' },
+    lab: { en: 'Midterm Showcase & Project Proposals', zh: '中期展示与开题' },
+  },
+  {
+    id: 'L11',
+    week: 11,
+    part: 2,
+    title: { en: 'Frontiers in Hardware Design', zh: '硬件设计前沿' },
+    guest: GUEST_TBD,
+    project: { en: 'Refining the Question & Evaluation Plan', zh: '确定问题与评估方式' },
+  },
+  {
+    id: 'L12',
+    week: 12,
+    part: 2,
+    title: { en: 'Frontiers in Manipulation', zh: '操作前沿' },
+    guest: GUEST_TBD,
+    project: { en: 'First Prototype on the Robot', zh: '第一版原型上真机' },
+  },
+  {
+    id: 'L13',
+    week: 13,
+    part: 2,
+    title: { en: 'Frontiers in Navigation', zh: '导航前沿' },
+    guest: GUEST_TBD,
+    project: { en: 'Check-in & Iteration', zh: '中期检查与迭代' },
+  },
+  {
+    id: 'L14',
+    week: 14,
+    part: 2,
+    title: { en: 'Frontiers in Human-Robot Interaction', zh: '人机交互前沿' },
+    guest: GUEST_TBD,
+    project: { en: 'Experiments & Evaluation', zh: '实验与评估' },
+  },
+  {
+    id: 'L15',
+    week: 15,
+    part: 2,
+    title: { en: 'Embodied Foundation Models', zh: '具身智能基础模型' },
+    guest: GUEST_TBD,
+    project: { en: 'Polishing & Showcase Prep', zh: '完善与展示准备' },
+  },
   { id: 'L16', week: 16, part: 2, title: { en: 'Final Showcase', zh: '期末展示' } },
 ];
 

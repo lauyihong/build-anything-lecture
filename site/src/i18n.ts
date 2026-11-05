@@ -17,7 +17,7 @@ export const UI = {
   colWeek: { en: 'Wk', zh: '周' },
   colLecture: { en: 'Lecture', zh: '课程内容' },
   readings: { en: 'Readings', zh: '阅读材料' },
-  guestLecture: { en: 'Guest Lecture', zh: '嘉宾讲座' },
+  guestLecture: { en: 'Guest speaker', zh: '嘉宾' },
   slidesLink: { en: 'Slides', zh: '课件' },
   codeLink: { en: 'Code', zh: '代码' },
   videoLink: { en: 'Video', zh: '录像' },
