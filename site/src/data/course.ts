@@ -80,8 +80,16 @@ export const COURSE = {
   // 课程简介，每个元素是一段
   about: [
     {
-      en: 'A hands-on elective for students in the School of Architecture: design and build, from scratch, an intelligent robot that can see, move and manipulate. In the first ten weeks, each session pairs a lecture with a lab. Working in teams, students build a standard open-source robot, step through four directions — hardware design, manipulation, navigation and human-robot interaction (HRI) — and practice the core methods of reading papers, running experiments and evaluating results. The last six weeks are devoted to a final project: each team picks one direction, poses its own question and carries out a first exploration on the real robot, while guest speakers bring frontier topics in each direction. The course ends with a final showcase.',
-      zh: '这是一门面向建筑学院学生的动手实践选修课：从零设计和建造一台能看、能动、能操作的智能机器人。前十周，每次课由讲授和实验两部分组成：同学们分组搭建一套标准的开源机器人，依次认识硬件设计、操作（manipulation）、导航（navigation）和人机交互（HRI）四个方向，同时练习读论文、做实验、评估结果这些基本方法。后六周以大作业为主：各组选定其中一个方向，提出自己的问题，在真机上完成一次起步性的探索；每周还有嘉宾带来对应方向的前沿专题。课程以期末展示收尾。',
+      en: 'As machine intelligence advances and mechanical and motor control technologies mature, robots are gradually making their way into everyday life, becoming new users of the built environment.',
+      zh: '随着智能水平的提升和机械与电机控制技术的成熟，机器人正逐渐走进人们身边，成为建筑环境中的新用户。',
+    },
+    {
+      en: 'This is a hands-on elective primarily for upper-year students in the School of Architecture. You will design and build, from scratch, an intelligent robot that can see, move and manipulate, and gain an in-depth understanding of how it works in complex environments shared with people.',
+      zh: '这是一门主要面向建筑学院高年级学生的实践选修课。你将从零设计和建造一台能看、能动、能操作的智能机器人，并深入了解它如何在与人共处的复杂环境中工作。',
+    },
+    {
+      en: 'The course consists of lectures and labs. The lectures systematically introduce the fundamentals of robot mechanisms, control, perception and learning. In the labs, you will work in teams to build an open-source robot kit, stepping through the frontier progress and learning methods of four directions: hardware design, robot manipulation, navigation and human-robot interaction. After the midterm, each team picks one of these directions for an exploratory final project, while guest speakers bring frontier topics in the corresponding direction each week. The course concludes with a final showcase.',
+      zh: '课程由讲授和实验两部分组成。讲授部分将系统介绍机器人的机构、控制、感知与学习等基础知识。实验课上，你们将分组搭建一套开源的机器人套件，依次认识硬件设计、机器人操作、导航和人机交互四个方向上的前沿进展和学习方法。中期之后，各组选定其中一个方向，完成一项探索性的大作业；每周还会有嘉宾带来对应方向的前沿专题。课程以期末展示收尾。',
     },
   ] as Localized[],
   // TODO: 学习目标
