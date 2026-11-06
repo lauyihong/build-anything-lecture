@@ -73,7 +73,7 @@ export const COURSE = {
     en: 'Design and build an intelligent robot from scratch.',
     zh: '从零设计和建造一台智能机器人。',
   },
-  partner: { en: 'General Education Course, School of Architecture, Tsinghua University', zh: '清华大学建筑学院通识课' },
+  partner: { en: 'Elective Course, School of Architecture, Tsinghua University', zh: '清华大学建筑学院选修课' },
   term: { en: 'Spring 2027', zh: '2027 春季学期' },
   time: { en: 'Fridays, 1:30–4:55 PM', zh: '每周五 13:30–16:55' },
   location: { en: 'TBD', zh: '待定' }, // TODO: 上课地点 / 线上
@@ -126,14 +126,14 @@ export const LECTURES: Lecture[] = [
     week: 2,
     part: 1,
     title: { en: 'Hardware: Mechanisms, Actuators & Sensors', zh: '硬件：机构、驱动与传感器' },
-    lab: { en: 'Assembling the Follower Arm', zh: '组装从臂' },
+    lab: { en: 'Robot Arm Assembly & Deployment', zh: '机械臂组装和部署' },
   },
   {
     id: 'L03',
     week: 3,
     part: 1,
     title: { en: 'Control & Kinematics Basics', zh: '控制与运动学基础' },
-    lab: { en: 'Leader Arm, Calibration & Teleoperation', zh: '组装主臂，标定与遥操作' },
+    lab: { en: 'Teleoperation & Data Collection', zh: '遥操作和数据收集' },
   },
   {
     id: 'L04',
